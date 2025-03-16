@@ -1,8 +1,13 @@
 {
-  "name": "storybook-nativewind",
-  "main": "expo-router/entry",
+  "name": "@g00gol/somethings-component-lib",
+  "main": "dist/index.js",
   "version": "1.0.0",
+  "files": [
+    "dist",
+    "components"
+  ],
   "scripts": {
+    "build": "tsc",
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
@@ -16,6 +21,9 @@
   },
   "jest": {
     "preset": "jest-expo"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
@@ -70,6 +78,5 @@
     "react-test-renderer": "18.2.0",
     "storybook": "^8.1.0",
     "typescript": "~5.3.3"
-  },
-  "private": true
+  }
 }
