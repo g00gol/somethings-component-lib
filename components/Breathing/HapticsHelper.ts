@@ -3,6 +3,7 @@ import { Platform } from "react-native";
 let Haptics: any = null;
 let RNHapticFeedback: any = null;
 
+//TODO: Remove expo-haptics in the main project
 try {
 	Haptics = require("expo-haptics");
 } catch (error) {
