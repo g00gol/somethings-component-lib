@@ -6,7 +6,7 @@ import {
 import {MotiView, useAnimationState} from "moti"
 import { CIRCLE_SIZE, FidgetButtonProps } from "./types";
 import * as Haptics from "expo-haptics";
-export const FidgetButton: React.FC<FidgetButtonProps> = ({size=CIRCLE_SIZE, color="#043bfb"}) => {
+export const FidgetButton = ({size=CIRCLE_SIZE, color="#043bfb"}) => {
     const styles = StyleSheet.create({
         container: {
             justifyContent: "center",

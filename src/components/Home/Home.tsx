@@ -10,9 +10,14 @@ import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 const modules = [
   {
-    title: "Breathing Circle",
+    title: "Breathing",
     icon: <Ionicons name="heart" size={28} color="#fff" />,
     route: "BreathingSelector",
+  },
+  {
+    title: "Guitar Hero Breathing",
+    icon: <Ionicons name="musical-notes" size={28} color="#fff" />,
+    route: "BreathingHero",
   },
   {
     title: "Grounding Exercise",

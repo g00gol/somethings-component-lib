@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import * as Haptics from "expo-haptics";
 
-type HapticDirection = "in" | "out" | "hold";
+export type HapticDirection = "in" | "out" | "hold";
 
 const INTENSITY_STEPS = [
   Haptics.ImpactFeedbackStyle.Light,
