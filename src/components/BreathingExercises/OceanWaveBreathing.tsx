@@ -14,7 +14,7 @@ const PHASES = [
   { name: "Inhale", to: 1.3, duration: 4000 },
   { name: "Hold", to: 1.3, duration: 7000 },
   { name: "Exhale", to: 1, duration: 8000 },
-] as const;
+] as const; 
 
 export const OceanWaveBreathing: React.FC<BreathingProps> = ({
   size = 120,

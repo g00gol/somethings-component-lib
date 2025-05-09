@@ -5,6 +5,7 @@ import { Home } from "./src/components/Home";
 import { BreathingSelector } from "./src/components/BreathingExercises";
 import { Grounding54321 } from "./src/components/Grounding";
 import { AimTrainer } from "./src/components/AimTrainer/AimTrainer";
+import { BreathingHero } from "./src/components/BreathingExercises/BreathingHero";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
       >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="BreathingSelector" component={BreathingSelector} />
+        <Stack.Screen name="BreathingHero" component={BreathingHero} />
         <Stack.Screen name="Grounding54321" component={Grounding54321} />
         <Stack.Screen name="AimTrainer" component={AimTrainer} />
       </Stack.Navigator>
