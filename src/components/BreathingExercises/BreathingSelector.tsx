@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
 import {
   BoxBreathing,
   OceanWaveBreathing,
@@ -7,12 +13,17 @@ import {
   DiamondBreathing,
 } from "./";
 
-const MODES = ["Box", "Ocean", "Tactical", "Diamond"] as const;
+const MODES = [
+  { label: "Box Breathing", key: "Box" },
+  { label: "Ocean Wave", key: "Ocean" },
+  { label: "Tactical", key: "Tactical" },
+  { label: "Diamond", key: "Diamond" },
+] as const;
 
-export type BreathingMode = (typeof MODES)[number];
+export type BreathingMode = (typeof MODES)[number]["key"];
 
 export const BreathingSelector = () => {
-  const [mode, setMode] = useState<BreathingMode>("Box");
+  const [mode, setMode] = useState<BreathingMode | null>(null);
 
   const renderExercise = () => {
     switch (mode) {
@@ -24,49 +35,58 @@ export const BreathingSelector = () => {
         return <TacticalBreathing />;
       case "Diamond":
         return <DiamondBreathing />;
+      default:
+        return (
+          <ScrollView contentContainerStyle={styles.cardContainer}>
+            <Text style={styles.header}>🫁 Choose a Breathing Style</Text>
+            {MODES.map((m) => (
+              <TouchableOpacity
+                key={m.key}
+                style={styles.card}
+                onPress={() => setMode(m.key)}
+              >
+                <Text style={styles.cardText}>{m.label}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        );
     }
   };
 
-  return (
-    <View style={{ flex: 1 }}>
-      <View style={styles.nav}>
-        {MODES.map((m) => (
-          <TouchableOpacity
-            key={m}
-            onPress={() => setMode(m)}
-            style={[styles.button, mode === m && styles.activeButton]}
-          >
-            <Text style={[styles.text, mode === m && styles.activeText]}>
-              {m}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-      {renderExercise()}
-    </View>
-  );
+  return <View style={styles.container}>{renderExercise()}</View>;
 };
 
 const styles = StyleSheet.create({
-  nav: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    paddingVertical: 10,
-    backgroundColor: "#eee",
+  container: {
+    flex: 1,
+    backgroundColor: "#111",
+    paddingHorizontal: 24,
+    paddingTop: 40,
   },
-  button: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 6,
-  },
-  activeButton: {
-    backgroundColor: "#333",
-  },
-  text: {
-    color: "#333",
-    fontSize: 16,
-  },
-  activeText: {
+  header: {
     color: "#fff",
+    fontSize: 24,
+    fontWeight: "700",
+    marginBottom: 30,
+    textAlign: "center",
+  },
+  cardContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+  },
+  card: {
+    backgroundColor: "#222",
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+  },
+  cardText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "600",
+    textAlign: "center",
   },
 });
