@@ -31,7 +31,8 @@ const modules = [
   },
   {
     title: "Fidget Button",
-    route: "FidgetButton"
+    icon: <MaterialCommunityIcons name="gesture-tap" size={28} color="#fff" />,
+    route: "FidgetButton",
   },
 ];
 
