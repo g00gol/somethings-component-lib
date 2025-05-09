@@ -12,6 +12,7 @@ export const FidgetButton: React.FC<FidgetButtonProps> = ({size=CIRCLE_SIZE, col
             justifyContent: "center",
             alignItems: "center",
             height:"100%",
+            backgroundColor: "#111",
         },
         circle: {
             width: size,
