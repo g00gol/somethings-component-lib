@@ -10,7 +10,7 @@
     "web": "expo start --web",
     "storybook:web": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "storybook-generate": "sb-rn-get-stories --config-path .rnstorybook",
+    "storybook-generate": "sb-rn-get-stories",
     "storybook": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start",
     "storybook:ios": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start --ios",
     "storybook:android": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start --android"
@@ -23,6 +23,7 @@
     "expo": "~53.0.7",
     "expo-constants": "~17.1.5",
     "expo-status-bar": "~2.2.3",
+    "moti": "^0.30.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.2",
@@ -30,7 +31,8 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-svg": "15.11.2",
-    "react-native-web": "^0.20.0"
+    "react-native-web": "^0.20.0",
+    "expo-haptics": "~14.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
@@ -51,6 +53,7 @@
     "@storybook/react-native-web-vite": "^8.6.12",
     "@storybook/test": "^8.6.12",
     "@types/react": "~19.0.10",
+    "babel-loader": "^8.4.1",
     "babel-plugin-react-docgen-typescript": "^1.5.1",
     "cross-env": "^7.0.3",
     "storybook": "^8.6.12",

@@ -1,27 +1,8 @@
-import { StorybookConfig } from "@storybook/react-native-web-vite";
+import { StorybookConfig } from '@storybook/react-native';
 
 const main: StorybookConfig = {
-  stories: [
-    "../components/**/*.stories.mdx",
-    "../components/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
-
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
-  ],
-
-  framework: {
-    name: "@storybook/react-native-web-vite",
-    options: {},
-  },
-
-  docs: {},
-
-  typescript: {
-    reactDocgen: "react-docgen",
-  },
+  stories: ['./stories/**/*.stories.?(ts|tsx|js|jsx)'],
+  addons: ['@storybook/addon-ondevice-controls', '@storybook/addon-ondevice-actions'],
 };
 
 export default main;
