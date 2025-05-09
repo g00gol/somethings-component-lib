@@ -1,20 +1,15 @@
-# Use official Expo image based on Node
 FROM node:20
 
-# Install expo CLI globally
-RUN npm install -g expo-cli
-
-# Set workdir
 WORKDIR /app
 
-# Copy project files
-COPY . .
+COPY package*.json ./
 
-# Install deps
 RUN npm install
 
-# Expose dev ports: Metro + Tunnel/WebSocket
+COPY . .
+
+RUN mkdir -p /app/.expo && chmod -R 777 /app/.expo
+
 EXPOSE 8081 19000 19001
 
-# Default command
-CMD ["expo", "start", "--tunnel"]
+CMD ["npx", "expo", "start", "--tunnel"]
