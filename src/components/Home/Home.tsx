@@ -24,6 +24,10 @@ const modules = [
     icon: <MaterialCommunityIcons name="bullseye" size={28} color="#fff" />,
     route: "AimTrainer",
   },
+  {
+    title: "Fidget Button",
+    route: "FidgetButton"
+  },
 ];
 
 export const Home = ({ navigation }: any) => {
