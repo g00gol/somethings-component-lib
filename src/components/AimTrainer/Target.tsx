@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderRadius: TARGET_SIZE / 2,
-    backgroundColor: "tomato",
+    backgroundColor: "#F5F0E1",
   },
 });
