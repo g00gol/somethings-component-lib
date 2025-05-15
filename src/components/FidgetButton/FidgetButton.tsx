@@ -3,10 +3,12 @@ import {
     View,
     StyleSheet
   } from "react-native";
-import {MotiView, useAnimationState} from "moti"
+import {MotiView} from "moti"
 import { CIRCLE_SIZE, FidgetButtonProps } from "./types";
 import * as Haptics from "expo-haptics";
-export const FidgetButton = ({size=CIRCLE_SIZE, color="#043bfb"}) => {
+import { useState } from "react";
+export const FidgetButton = ({size=CIRCLE_SIZE, color="#eb4034"}) => {
+    const [isPressed, setIsPressed] = useState(false);
     const styles = StyleSheet.create({
         container: {
             justifyContent: "center",
@@ -22,18 +24,26 @@ export const FidgetButton = ({size=CIRCLE_SIZE, color="#043bfb"}) => {
             overflow: "hidden",
           }
     });
-    const onPress = () => {
-        console.log("pressed");
+
+    const handlePressIn = () => {
+        setIsPressed(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
-    }
+    };
+
+    const handlePressOut = () => {
+        setIsPressed(false);
+    };
     return(
         <View style={styles.container}>
-            <Pressable onPress={onPress}>
-                {({ pressed }) => (
-                    <MotiView
+            <Pressable 
+                // onPress={onPress}
+                onPressIn={handlePressIn}
+                onPressOut={handlePressOut}
+            >
+                <MotiView
                     animate={{
-                        opacity: pressed ? 0.5 : 1,
-                        scale: pressed ? 1.5 : 1,
+                        opacity: isPressed ? 0.5 : 1,
+                        scale: isPressed ? 1.5 : 1,
                     }}
                     transition={{
                         type: 'spring',
@@ -42,7 +52,6 @@ export const FidgetButton = ({size=CIRCLE_SIZE, color="#043bfb"}) => {
                     }}
                     style={styles.circle}
                     />
-                )}
             </Pressable>    
         </View>
     );
